@@ -2,7 +2,9 @@
 apt-get update
 
 # set up a silent install of MySQL
-
+#install java
+sudo apt-get update
+sudo apt-get -y install default-jdk
 
 
 #export DEBIAN_FRONTEND=noninteractive
