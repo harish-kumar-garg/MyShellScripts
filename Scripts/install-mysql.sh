@@ -12,7 +12,7 @@ echo mysql-server-5.6 mysql-server/root_password password welcome123 | debconf-s
 echo mysql-server-5.6 mysql-server/root_password_again password welcome123 | debconf-set-selections
 
 # install the LAMP stack
-apt-get -y install mysql-server 
+sudo apt-get -y install mysql-server 
 
 #sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
