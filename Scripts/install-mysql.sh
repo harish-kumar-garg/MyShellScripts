@@ -26,24 +26,24 @@ echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'welcome123'; flus
 #install tomcat
 sudo mkdir /opt/tomcat
 cd /opt/tomcat
-sudo wget http://www.interior-dsgn.com/apache/tomcat/tomcat-8/v8.0.29/bin/apache-tomcat-8.0.29.zip
-sudo wget https://www.apache.org/dist/tomcat/tomcat-8/v8.0.29/bin/apache-tomcat-8.0.29.zip.md5
-cat apache-tomcat-8.0.29.zip.md5
-md5sum apache-tomcat-8.0.29.zip
-sudo unzip apache-tomcat-8.0.29.zip
-cd apache-tomcat-8.0.29/bin
-sudo chmod 777 /opt/tomcat/apache-tomcat-8.0.29/bin/*.sh
-sudo ln -s /opt/tomcat/apache-tomcat-8.0.29/bin/startup.sh /usr/bin/tomcatup
- sudo ln -s /opt/tomcat/apache-tomcat-8.0.29/bin/shutdown.sh /usr/bin/tomcatdown
-sudo chmod 777 /opt/tomcat/apache-tomcat-8.0.29/logs/
+sudo wget https://www.apache.org/dist/tomcat/tomcat-8/v8.0.32/bin/apache-tomcat-8.0.32.zip
+sudo wget https://www.apache.org/dist/tomcat/tomcat-8/v8.0.32/bin/apache-tomcat-8.0.32.zip.md5
+cat apache-tomcat-8.0.32.zip.md5
+md5sum apache-tomcat-8.0.32.zip
+sudo unzip apache-tomcat-8.0.32.zip
+cd apache-tomcat-8.0.32/bin
+sudo chmod 777 /opt/tomcat/apache-tomcat-8.0.32/bin/*.sh
+sudo ln -s /opt/tomcat/apache-tomcat-8.0.32/bin/startup.sh /usr/bin/tomcatup
+ sudo ln -s /opt/tomcat/apache-tomcat-8.0.32/bin/shutdown.sh /usr/bin/tomcatdown
+sudo chmod 777 /opt/tomcat/apache-tomcat-8.0.32/logs/
 tomcatup
 
 #install sikuli
 sudo apt-get update
-sudo apt-get install sikuli-ide
+sudo apt-get -y install sikuli-ide
 
 #install maven
-sudo apt-get install maven
+sudo apt-get -y install maven
 
 #install ant
 sudo apt-get install ant
