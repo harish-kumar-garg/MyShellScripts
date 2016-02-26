@@ -18,14 +18,14 @@ sudo sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mys
 sudo service mysql restart
 
 echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'welcome123'; flush privileges;" | mysql -u root -pwelcome123
-echo "create database Sonar; commit;" | mysql -u root -pwelcome123 
+echo "create database sonar; commit;" | mysql -u root -pwelcome123 
 echo "CREATE USER 'sonar' IDENTIFIED BY 'sonar'; commit;" | mysql -u root -pwelcome123
 echo "GRANT ALL ON sonar.* TO 'sonar'@'%' IDENTIFIED BY 'sonar'; commit;" | mysql -u root -pwelcome123
 echo "GRANT ALL ON sonar.* TO 'sonar'@'localhost' IDENTIFIED BY 'sonar'; commit; flush privileges;" | mysql -u root -pwelcome123
 wget http://dist.sonar.codehaus.org/sonarqube-5.1.zip
 sudo apt-get -y install unzip
 unzip sonarqube-5.1.zip
-mv sonarqube-5.1 /opt/sonar
+sudo mv sonarqube-5.1 /opt/sonar
 
 echo "sonar.jdbc.username=root
 sonar.jdbc.password=welcome123
