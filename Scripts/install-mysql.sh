@@ -29,7 +29,7 @@ sudo mv sonarqube-5.1 /opt/sonar
 
 echo "sonar.jdbc.username=root
 sonar.jdbc.password=welcome123
-sonar.jdbc.url=jdbc:mysql://locahost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance
+sonar.jdbc.url=jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance
 sonar.web.host=127.0.0.1
 sonar.web.context=/sonar
 sonar.web.port=9000
