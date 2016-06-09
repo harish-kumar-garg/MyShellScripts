@@ -26,4 +26,3 @@ cd apache-tomcat-8.5.2/bin
 chmod 700 /opt/tomcat/apache-tomcat-8.5.2/bin/*.sh
 cd /opt/tomcat/apache-tomcat-8.5.2/bin/ 
 ./startup.sh
-curl -i localhost:8080
