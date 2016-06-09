@@ -16,6 +16,7 @@ export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
 java -version
 
 #install Tomcat
+mkdir /opt/tomcat
 cd /opt/tomcat
 wget http://www.interior-dsgn.com/apache/tomcat/tomcat-8/v8.5.2/bin/apache-tomcat-8.5.2.zip
 wget https://www.apache.org/dist/tomcat/tomcat-8/v8.5.2/bin/apache-tomcat-8.5.2.zip.md5
