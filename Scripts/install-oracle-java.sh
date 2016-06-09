@@ -27,4 +27,4 @@ unzip /opt/tomcat/apache-tomcat-8.5.2.zip
 cd /opt/tomcat/apache-tomcat-8.5.2/bin
 chmod 700 /opt/tomcat/apache-tomcat-8.5.2/bin/*.sh
 cd /opt/tomcat/apache-tomcat-8.5.2/bin/ 
-sh /opt/tomcat/apache-tomcat-8.0.29/bin/startup.sh
+sh /opt/tomcat/apache-tomcat-8.5.2/bin/startup.sh
