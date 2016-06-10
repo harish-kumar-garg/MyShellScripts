@@ -11,7 +11,7 @@ update-alternatives --config javac
 update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_45/bin/jar 100
 update-alternatives --config jar
 export JAVA_HOME=/opt/java/jdk1.8.0_45/
-export JRE_HOME=/opt/java/jdk1.8.0._45/jre
+export JRE_HOME=/opt/java/jdk1.8.0_45/jre
 export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
 java -version
 
