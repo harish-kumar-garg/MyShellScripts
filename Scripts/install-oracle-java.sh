@@ -26,6 +26,6 @@ sudo md5sum /opt/tomcat/apache-tomcat-8.5.2.zip
 sudo unzip /opt/tomcat/apache-tomcat-8.5.2.zip
 sudo cd /opt/tomcat/apache-tomcat-8.5.2/bin
 sudo chmod 700 /opt/tomcat/apache-tomcat-8.5.2/bin/*.sh
+sudo cd /opt/tomcat/apache-tomcat-8.5.2/webapps && wget https://adidaswarstorage.blob.core.windows.net/warfileupload/MyArenaREST.war
 sudo cd /opt/tomcat/apache-tomcat-8.5.2/bin/ 
 sudo sh /opt/tomcat/apache-tomcat-8.5.2/bin/startup.sh
-sudo cd /opt && wget https://adidaswarstorage.blob.core.windows.net/warfileupload/MyArenaREST.war
