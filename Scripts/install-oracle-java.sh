@@ -16,13 +16,13 @@ export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
 java -version
 
 cd
-cd
+
 #install Tomcat
 sudo mkdir /opt/tomcat
 cd /opt/tomcat && wget http://www.interior-dsgn.com/apache/tomcat/tomcat-8/v8.5.2/bin/apache-tomcat-8.5.2.zip
 cd /opt/tomcat && wget https://www.apache.org/dist/tomcat/tomcat-8/v8.5.2/bin/apache-tomcat-8.5.2.zip.md5
 sudo cat /opt/tomcat/apache-tomcat-8.5.2.zip.md5
-sudo md5sum /opt/tomcat/apache-tomcat-8.5.2.zip
+md5sum /opt/tomcat/apache-tomcat-8.5.2.zip
 sudo unzip /opt/tomcat/apache-tomcat-8.5.2.zip
 cd /opt/tomcat/apache-tomcat-8.5.2/bin
 sudo chmod 700 /opt/tomcat/apache-tomcat-8.5.2/bin/*.sh
