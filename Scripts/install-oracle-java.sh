@@ -19,13 +19,13 @@ cd
 cd
 #install Tomcat
 sudo mkdir /opt/tomcat
-sudo cd /opt/tomcat && wget http://www.interior-dsgn.com/apache/tomcat/tomcat-8/v8.5.2/bin/apache-tomcat-8.5.2.zip
-sudo cd /opt/tomcat && wget https://www.apache.org/dist/tomcat/tomcat-8/v8.5.2/bin/apache-tomcat-8.5.2.zip.md5
+cd /opt/tomcat && wget http://www.interior-dsgn.com/apache/tomcat/tomcat-8/v8.5.2/bin/apache-tomcat-8.5.2.zip
+cd /opt/tomcat && wget https://www.apache.org/dist/tomcat/tomcat-8/v8.5.2/bin/apache-tomcat-8.5.2.zip.md5
 sudo cat /opt/tomcat/apache-tomcat-8.5.2.zip.md5
 sudo md5sum /opt/tomcat/apache-tomcat-8.5.2.zip
 sudo unzip /opt/tomcat/apache-tomcat-8.5.2.zip
-sudo cd /opt/tomcat/apache-tomcat-8.5.2/bin
+cd /opt/tomcat/apache-tomcat-8.5.2/bin
 sudo chmod 700 /opt/tomcat/apache-tomcat-8.5.2/bin/*.sh
-sudo cd /opt/tomcat/apache-tomcat-8.5.2/webapps && wget https://adidaswarstorage.blob.core.windows.net/warfileupload/MyArenaREST.war
-sudo cd /opt/tomcat/apache-tomcat-8.5.2/bin/ 
+cd /opt/tomcat/apache-tomcat-8.5.2/webapps && wget https://adidaswarstorage.blob.core.windows.net/warfileupload/MyArenaREST.war
+cd /opt/tomcat/apache-tomcat-8.5.2/bin/ 
 sudo sh /opt/tomcat/apache-tomcat-8.5.2/bin/startup.sh
