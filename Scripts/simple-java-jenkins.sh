@@ -4,3 +4,6 @@ sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sourc
 apt-get update
 apt-get -y install default-jdk
 apt-get -y install jenkins
+apt-get -y install maven
+wget -qO- https://get.docker.com/ | sh
+sudo usermod -aG docker $USER
