@@ -18,18 +18,18 @@ cp jq /usr/bin
 delete_resource_group()
 {
 	echo 'Initializing...'
-	I=0
-	NAME1='null'
-	TOTAL_NUMBER_OF_RG=0
+	I=
+	NAME1=
+	TOTAL_NUMBER_OF_RG=
 	while [ $I -gt 0 ]
 	do
-		NAME1="$(cat rgName.json | jq '.value'[$I]'.name')"
-		if [ "$NAME1" = 'null' ]
+		NAME1='$(cat rgName.json | jq '.value[$I].name')'
+		if [ $NAME1 = 'null' ]
 		then
 			break
 		else
-			I='expr $I + 1'
-		then	
+			I=`expr $I + 1`
+		fi	
 	done
 	TOTAL_NUMBER_OF_RG=$I
 	echo $TOTAL_NUMBER_OF_RG
@@ -37,11 +37,11 @@ delete_resource_group()
 	#date is in format ddmmyyyy
 	while [ $I -lt $TOTAL_NUMBER_OF_RG ]
 	do
-		NAME1="$(cat rgName.json | jq '.value'[$I]'.name')"
-		if [ "$NAME1" = *DND* ]
+		NAME1='$(cat rgName.json | jq '.value[$I].name')'
+		if [ $NAME1 = *DND* ]
 			then
-				echo "$NAME1"' is not deleted'
-				I='expr $I + 1'
+				echo $NAME1' is not deleted'
+				I=`expr $I + 1`
 			else
 				echo $NAME1'will be deleted'
 				I=`expr $I + 1`
