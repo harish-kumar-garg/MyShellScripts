@@ -29,7 +29,7 @@ delete_resource_group()
 			break
 		else
 			I='expr $I + 1'
-		fi	
+		then	
 	done
 	TOTAL_NUMBER_OF_RG=$I
 	echo $TOTAL_NUMBER_OF_RG
@@ -37,7 +37,7 @@ delete_resource_group()
 	#date is in format ddmmyyyy
 	while [ $I -lt $TOTAL_NUMBER_OF_RG ]
 	do
-		NAME1="$(cat rgName.json | jq '.value[$I].name')"
+		NAME1="$(cat rgName.json | jq '.value'[$I]'.name')"
 		if [ "$NAME1" = *DND* ]
 			then
 				echo "$NAME1"' is not deleted'
