@@ -42,8 +42,10 @@ delete_resource_group()
 			then
 				echo "$NAME1"' is not deleted'
 				I='expr $I + 1'
+			else
+				echo $NAME1'will be deleted'
+				I=`expr $I + 1`
 		fi
-			I='expr $I + 1'
 	done
 }  
 #calling function
