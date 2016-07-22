@@ -1,6 +1,7 @@
 sudo su
 cd /etc/
 sh download.sh
+cd
 #curl -X POST https://login.windows.net/85c997b9-f494-46b3-a11d-772983cf6f11/oauth2/token  \
  # -F redirect_uri=http://localhost \
   #-F grant_type=authorization_code \
