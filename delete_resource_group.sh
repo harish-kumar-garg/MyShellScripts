@@ -1,4 +1,4 @@
-#!bin/bash
+#!bin/sh
 #sudo su
 #sh /etc/download.sh
 #cd
