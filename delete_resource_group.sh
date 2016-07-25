@@ -49,4 +49,4 @@ delete_resource_group()
 	done
 }  
 #calling function
-delete_resource_group()
+delete_resource_group
