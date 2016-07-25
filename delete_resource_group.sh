@@ -1,3 +1,4 @@
+#!bin/bash
 cd /etc/
 sudo sh download.sh
 cd
