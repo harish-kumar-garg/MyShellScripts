@@ -23,7 +23,7 @@ delete_resource_group() {
 	do
 		NAME1='$(cat rgName.json | jq .value['$I'].name)'
 		if [ $NAME1 = 'null' ] then
-			break;
+			break
 		else
 			I=`expr $I + 1`
 		fi	
@@ -37,7 +37,7 @@ delete_resource_group() {
 		NAME1='$(cat rgName.json | jq .value['$I'].name)'
 		if [ $NAME1 = *DND* ] then
 				echo $NAME1' is not deleted'
-				I=`expr $I + 1`;
+				I=`expr $I + 1`
 			else
 				echo $NAME1'will be deleted'
 				I=`expr $I + 1`
