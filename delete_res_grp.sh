@@ -19,7 +19,7 @@ delete_resource_group() {
 	I=
 	NAME1=
 	TOTAL_NUMBER_OF_RG=
-	while [ $I -gt 0 ]
+	while [ $I -ge 0 ]
 	do
 		NAME1='$(cat rgName.json | jq .value['$I'].name)'
 		if [ $NAME1 = 'null' ]; then
