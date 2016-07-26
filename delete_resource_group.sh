@@ -22,7 +22,7 @@ delete_resource_group() {
 	while [ $I -gt 0 ]
 	do
 		NAME1='$(cat rgName.json | jq .value['$I'].name)'
-		if [ $NAME1 = 'null' ] then
+		if [ $NAME1 = 'null' ]; then
 			break
 		else
 			I=`expr $I + 1`
