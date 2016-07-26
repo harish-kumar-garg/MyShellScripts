@@ -16,8 +16,8 @@
 #function definition
 delete_resource_group() {
 	echo 'Initializing...'
-	I=
-	NAME1=
+	I=0
+	NAME1='null'
 	TOTAL_NUMBER_OF_RG=
 	while [ $I -ge 0 ]
 	do
