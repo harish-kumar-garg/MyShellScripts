@@ -17,6 +17,9 @@
 delete_resource_group() {
 	echo 'Initializing...'
 	I=0
+	red=`tput setaf 1`
+	green=`tput setaf 2`
+	reset=`tput sgr0`
 	NAME1='null'
 	TOTAL_NUMBER_OF_RG=
 	while [ "${I}" -ge 0 ]
@@ -29,18 +32,20 @@ delete_resource_group() {
 		fi	
 	done
 	TOTAL_NUMBER_OF_RG=$I
-	echo $TOTAL_NUMBER_OF_RG
+	echo 'Total number of RG: '$TOTAL_NUMBER_OF_RG
 	I=0
 	#date is in format ddmmyyyy
 	while [ "${I}" -lt "${TOTAL_NUMBER_OF_RG}" ]
 	do
 		NAME1="$(cat rgNames.json | jq .value[${I}].name)"
 		if [ "${NAME1}" = *DND* ]; then
-				echo "${NAME1}"' is not deleted'
+				echo "${green}${NAME1}"' is not deleted'
 				I=`expr $I + 1`
+				echo $reset;
 			else
-				echo "${NAME1}"' will be deleted'
+				echo "${red}${NAME1}"' will be deleted'
 				I=`expr $I + 1`
+				echo $reset;
 		fi
 	done
 }  
