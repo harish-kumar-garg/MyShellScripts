@@ -19,7 +19,7 @@ delete_resource_group() {
 	I=0
 	NAME1='null'
 	TOTAL_NUMBER_OF_RG=
-	while [ $I -ge 0 ]
+	while [ "${I}" -ge 0 ]
 	do
 		NAME1='$(cat rgName.json | jq .value['$I'].name)'
 		if [ $NAME1 = 'null' ]; then
@@ -32,7 +32,7 @@ delete_resource_group() {
 	echo $TOTAL_NUMBER_OF_RG
 	I=0
 	#date is in format ddmmyyyy
-	while [ $I -lt $TOTAL_NUMBER_OF_RG ]
+	while [ "${I}" -lt "${TOTAL_NUMBER_OF_RG}" ]
 	do
 		NAME1='$(cat rgName.json | jq .value['$I'].name)'
 		if [ $NAME1 = *DND* ]; then
