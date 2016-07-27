@@ -21,7 +21,7 @@ delete_resource_group() {
 	TOTAL_NUMBER_OF_RG=
 	while [ "${I}" -ge 0 ]
 	do
-		NAME1="$(cat rgNames.json | jq .value['${I}'].name)"
+		NAME1="$(cat rgNames.json | jq .value[${I}].name)"
 		if [ "${NAME1}" = 'null' ]; then
 			break;
 		else
@@ -34,12 +34,12 @@ delete_resource_group() {
 	#date is in format ddmmyyyy
 	while [ "${I}" -lt "${TOTAL_NUMBER_OF_RG}" ]
 	do
-		NAME1="$(cat rgNames.json | jq .value['${I}'].name)"
+		NAME1="$(cat rgNames.json | jq .value[${I}].name)"
 		if [ "${NAME1}" = *DND* ]; then
 				echo "${NAME1}"' is not deleted'
 				I=`expr $I + 1`
 			else
-				echo "${NAME1}"'will be deleted'
+				echo "${NAME1}"' will be deleted'
 				I=`expr $I + 1`
 		fi
 	done
