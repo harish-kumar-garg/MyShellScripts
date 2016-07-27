@@ -42,10 +42,12 @@ delete_resource_group() {
 				echo "${green}${NAME1}"' is not deleted'
 				I=`expr $I + 1`
 				echo $reset;
+				echo 'next';
 			else
 				echo "${red}${NAME1}"' will be deleted'
 				I=`expr $I + 1`
 				echo $reset;
+				echo 'next';
 		fi
 	done
 }  
