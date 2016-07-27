@@ -38,7 +38,7 @@ delete_resource_group() {
 	while [ "${I}" -lt "${TOTAL_NUMBER_OF_RG}" ]
 	do
 		NAME1="$(cat rgNames.json | jq .value[${I}].name)"
-		if [[ $NAME1 == *"DND"* ]]; then
+		if [ ${NAME1} == *"DND"* ]; then
 				echo "${green}${NAME1}"' is not deleted'
 				I=`expr $I + 1`
 				echo $reset;
