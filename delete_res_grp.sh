@@ -1,14 +1,12 @@
 #!bin/sh
-#sudo su
-#sh /etc/download.sh
-#cd
+sudo su
 #curl -X POST https://login.windows.net/85c997b9-f494-46b3-a11d-772983cf6f11/oauth2/token  \
  # -F redirect_uri=http://localhost \
   #-F grant_type=authorization_code \
   #-F resource=https://management.core.windows.net/ \
   #-F client_id=1f7ba90d-f0d3-4a3e-954d-4817448d93ed \
   #-F code=AAABAAAA0TWEUN3YUUq5vuCvmnaQiXFIqQ1ZFbTQUGtmRois6jyQkRm8NC8NVXZGGA_4McWR1tPIuAnUGvXTDE-0w3CxtlnpCC1NBQ10Ovu_wY1ypXIejxou0bAftGxPiQ-xVxOLCN-XeIcv32yBShp_B9THIO3l-_bcAyVlOCj90HuW6roBEf8vbLwhmeFfW9XT04wBwwoBTUG1poeQH2j2DL1W4hEyy9uyDiOnrLwlyiAtG65tZNlNtGC_ZV5QhHzsaPWmNVtPyC1-DbU1QnBWNRygectbEwEhilHRfm-hTx4MewO1IR0lVOeA9KamYTt6hitYt6WoTJRiAJPeRWh9-RokY-b1wEgHkcsXPZ45cXd8ehefjQOYOXDG8qJxFlIKnJsvbNU0tPruXFVT_3Uw-75tfOCrB-u3tGe52wIO61w8yznk_9WYnhA5N9gVm3G1bM7hv82ASKOb9VtqRVKF-2TTw03Pedk96WPImkk8unOfaGd4x9O1nrosjwjNffHhgiy0UFnK02uaVezCmac-1jS0oqlB6GpHv_TKlqfjBL7aQAmvpAFd6b-3my5Vw-BU57P6eCTkHOHy7gvJ1124HygjszM6_FnfNmP52c7GftmbwtlEZ5F8xebf6-vT5UnLUWA7vxKR9GHGGbSS-ZHb1nRw7OUP5rPiWGvuExQT-tPkhkjpe1u8MEdUrouXHZqdI5Lz8ZZy-ZsZlCbghQD5x028hXlTqsE2RkDl2g22GCLm6IBw_ostV1CRf1EzIFbpagbA8oyRwzaJ4L_k7vJ0keNe_iB5MbHbi2YQIXbG0eyIcbQgAA > tokens.json
-#TOKEN="$(cat tokens.json | jq '.access_token')"
+TOKEN="$(cat tokens.json | jq '.access_token')"
 #curl -v https://management.azure.com/subscriptions/c8947205-1040-4fc4-b494-c3b3136166c0/resourceGroups?api-version=2014-04-01 \
  # -H "x-ms-version: 2013-08-01" \
  # -H "Content-Type:application/json" \
