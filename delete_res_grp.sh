@@ -10,7 +10,7 @@ token1="$({TOKEN:1:-1})"
 curl -v https://management.azure.com/subscriptions/c8947205-1040-4fc4-b494-c3b3136166c0/resourceGroups?api-version=2014-04-01 \
   -H "x-ms-version: 2013-08-01" \
   -H "Content-Type:application/json" \
-  -H "Authorization: Bearer ${token1}" > rgNames.json
+  -H "Authorization: Bearer "${token1}"" > rgNames.json
 #function definition
 delete_resource_group() {
 	echo 'Initializing...'
