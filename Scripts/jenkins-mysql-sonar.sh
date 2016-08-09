@@ -13,7 +13,7 @@ echo mysql-server-5.6 mysql-server/root_password password welcome123 | debconf-s
 echo mysql-server-5.6 mysql-server/root_password_again password welcome123 | debconf-set-selections
 
 # install the LAMP stack
-apt-get -y install mysql-server 
+sudo apt-get -y install mysql-server 
 
 sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
@@ -23,9 +23,9 @@ echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'welcome123'; flus
 echo "CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci; CREATE USER 'sonar' IDENTIFIED BY 'sonar';GRANT ALL PRIVILEGES ON sonar.* TO 'sonar'@'%' IDENTIFIED BY 'sonar'; GRANT ALL ON sonar.* TO 'sonar'@'localhost' IDENTIFIED BY 'sonar'; flush privileges;" | mysql -u root -pwelcome123
 
 wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-5.6.zip
-apt-get install -y unzip
+sudo apt-get install -y unzip
 unzip sonarqube-5.6.zip
-mv sonarqube-5.6 /opt/sonar
+sudo mv sonarqube-5.6 /opt/sonar
 ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
 echo "sonar.jdbc.username=sonar" >> /opt/sonar/conf/sonar.properties
 echo "sonar.jdbc.password=sonar" >> /opt/sonar/conf/sonar.properties
@@ -39,7 +39,7 @@ echo "PLATFORM=linux-x86-64" >> /etc/init.d/sonar
 echo "WRAPPER_CMD="${SONAR_HOME}/bin/${PLATFORM}/wrapper"" >> /etc/init.d/sonar
 echo "WRAPPER_CONF="${SONAR_HOME}/conf/wrapper.conf"" >> /etc/init.d/sonar
 echo "PIDDIR="/var/run"" >> /etc/init.d/sonar
-update-rc.d -f sonar remove
-chmod 755 /etc/init.d/sonar
-update-rc.d sonar defaults
-/opt/sonar/bin/linux-x86-64/sonar.sh start
+sudo update-rc.d -f sonar remove
+sudo chmod 755 /etc/init.d/sonar
+sudo update-rc.d sonar defaults
+sudo /opt/sonar/bin/linux-x86-64/sonar.sh start
