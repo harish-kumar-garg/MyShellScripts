@@ -1,5 +1,4 @@
 #!bin/bash
-sudo su
 cd
 #installing java and jenkins
 wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
