@@ -5,6 +5,21 @@ wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add
 sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
 sudo apt-get -y install default-jdk
+#install oracle java
+mkdir /opt/java 
+cd /opt/java 
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz"
+tar -zxvf jdk-8u45-linux-x64.tar.gz
+cd jdk1.8.0_45/
+update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_45/bin/java 100
+update-alternatives --config java
+update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_45/bin/javac 100
+update-alternatives --config javac
+update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_45/bin/jar 100
+update-alternatives --config jar
+export JAVA_HOME=/opt/java/jdk1.8.0_45/
+export JRE_HOME=/opt/java/jdk1.8.0_45/jre
+export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
 sudo apt-get -y install jenkins
 cd
 #installing mysql and sonar
@@ -26,10 +41,10 @@ wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-5.6.zip
 sudo apt-get install -y unzip
 unzip sonarqube-5.6.zip
 sudo mv sonarqube-5.6 /opt/sonar
-ip="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
+IP="$(ifconfig | grep -A 1 'eth0' | tail -1 | cut -d ':' -f 2 | cut -d ' ' -f 1)"
 echo 'sonar.jdbc.username=sonar' >> /opt/sonar/conf/sonar.properties
 echo 'sonar.jdbc.password=sonar' >> /opt/sonar/conf/sonar.properties
-echo 'sonar.jdbc.url=jdbc:mysql://'{$ip}':3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance' >>/opt/sonar/conf/sonar.properties
+echo "sonar.jdbc.url=jdbc:mysql://${IP}:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance" >>/opt/sonar/conf/sonar.properties
 echo 'sonar.web.host=0.0.0.0' >> /opt/sonar/conf/sonar.properties
 echo 'sonar.web.context=/sonar' >> /opt/sonar/conf/sonar.properties
 echo 'sonar.web.port=9000' >> /opt/sonar/conf/sonar.properties
