@@ -1,8 +1,6 @@
 #!bin/bash
 cd
-#installing java and jenkins
-wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
-sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+#installing java
 sudo apt-get update
 sudo apt-get -y install default-jdk
 #install oracle java
@@ -20,6 +18,9 @@ update-alternatives --config jar
 export JAVA_HOME=/opt/java/jdk1.8.0_45/
 export JRE_HOME=/opt/java/jdk1.8.0_45/jre
 export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
+#installing jenkins
+wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get -y install jenkins
 cd
 #installing mysql and sonar
