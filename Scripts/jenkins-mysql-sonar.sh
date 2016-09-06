@@ -2,7 +2,6 @@
 cd
 #installing java
 sudo apt-get update
-sudo apt-get -y install default-jdk
 #install oracle java
 mkdir /opt/java 
 cd /opt/java 
