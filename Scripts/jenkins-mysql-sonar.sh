@@ -3,25 +3,26 @@ cd
 #installing java
 sudo apt-get update
 #install oracle java
-mkdir /opt/java 
+sudo mkdir /opt/java
 cd /opt/java 
-wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz"
-tar -zxvf jdk-8u45-linux-x64.tar.gz
+sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz"
+sudo tar -zxvf jdk-8u45-linux-x64.tar.gz
 cd jdk1.8.0_45/
-update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_45/bin/java 100
+sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_45/bin/java 100
 update-alternatives --config java
-update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_45/bin/javac 100
+sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_45/bin/javac 100
 update-alternatives --config javac
-update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_45/bin/jar 100
+sudo update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_45/bin/jar 100
 update-alternatives --config jar
 export JAVA_HOME=/opt/java/jdk1.8.0_45/
 export JRE_HOME=/opt/java/jdk1.8.0_45/jre
 export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
 #installing jenkins
-wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
-sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-sudo apt-get update
-sudo apt-get -y install jenkins
+# cd
+# wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+# sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+# sudo apt-get update
+# sudo apt-get -y install jenkins
 cd
 #installing mysql and sonar
 export DEBIAN_FRONTEND=noninteractive
@@ -29,7 +30,7 @@ echo mysql-server-5.6 mysql-server/root_password password welcome123 | debconf-s
 echo mysql-server-5.6 mysql-server/root_password_again password welcome123 | debconf-set-selections
 
 # install the LAMP stack
-sudo apt-get -y install mysql-server 
+sudo apt-get -y install mysql-server-5.6 
 
 sudo sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
 
@@ -55,7 +56,7 @@ sudo chmod 777 /etc/init.d/sonar
 echo '' >> /etc/init.d/sonar
 echo 'SONAR_HOME='/opt/sonar'' >> /etc/init.d/sonar
 echo 'PLATFORM='linux-x86-64'' >> /etc/init.d/sonar
-sed -i 's/WRAPPER_CMD=".\/wrapper"/WRAPPER_CMD="\${SONAR_HOME}\/bin\/\${PLATFORM}\/wrapper"/g' /etc/init.d/sonar
+sudo sed -i 's/WRAPPER_CMD=".\/wrapper"/WRAPPER_CMD="\${SONAR_HOME}\/bin\/\${PLATFORM}\/wrapper"/g' /etc/init.d/sonar
 sudo sed -i -e' s/WRAPPER_CONF="..\/..\/conf\/wrapper.conf"/WRAPPER_CONF="\${SONAR_HOME}\/conf\/wrapper.conf"/g' /etc/init.d/sonar
 sudo sed -i -e 's/PIDDIR="."/PIDDIR="\/var\/run"/g' /etc/init.d/sonar
 sudo update-rc.d -f sonar remove
