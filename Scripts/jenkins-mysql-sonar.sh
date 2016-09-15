@@ -8,21 +8,27 @@ cd /opt/java
 sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz"
 sudo tar -zxvf jdk-8u45-linux-x64.tar.gz
 cd jdk1.8.0_45/
-sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_45/bin/java 100
-update-alternatives --config java
-sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_45/bin/javac 100
-update-alternatives --config javac
-sudo update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_45/bin/jar 100
-update-alternatives --config jar
-export JAVA_HOME=/opt/java/jdk1.8.0_45/
-export JRE_HOME=/opt/java/jdk1.8.0_45/jre
-export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
+sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_45/bin/java 1080
+sudo update-alternatives --config java
+sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_45/bin/javac 1079
+sudo update-alternatives --config javac
+sudo update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_45/bin/jar 1078
+sudo update-alternatives --config jar
+# export JAVA_HOME=/opt/java/jdk1.8.0_45/
+# export JRE_HOME=/opt/java/jdk1.8.0_45/jre
+# export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
+cd
+echo "" >> .bashrc
+echo "JAVA_HOME=/opt/java/jdk1.8.0_45/" >> .bashrc
+echo "JRE_HOME=/opt/java/jdk1.8.0_45/jre" >> .bashrc
+echo "PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin" >> .bashrc
+java -version
 #installing jenkins
-# cd
-# wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
-# sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-# sudo apt-get update
-# sudo apt-get -y install jenkins
+cd
+wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get -y install jenkins
 cd
 #installing mysql and sonar
 export DEBIAN_FRONTEND=noninteractive
