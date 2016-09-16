@@ -18,10 +18,10 @@ sudo update-alternatives --config jar
 # export JRE_HOME=/opt/java/jdk1.8.0_45/jre
 # export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
 cd
-echo "" >> .bashrc
-echo "JAVA_HOME=/opt/java/jdk1.8.0_45/" >> .bashrc
-echo "JRE_HOME=/opt/java/jdk1.8.0_45/jre" >> .bashrc
-echo "PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin" >> .bashrc
+sudo echo "" >> .bashrc
+sudo echo "JAVA_HOME=/opt/java/jdk1.8.0_45/" >> .bashrc
+sudo echo "JRE_HOME=/opt/java/jdk1.8.0_45/jre" >> .bashrc
+sudo echo "PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin" >> .bashrc
 java -version
 #installing jenkins
 cd
