@@ -22,6 +22,7 @@ sudo echo "" >> .bashrc
 sudo echo "export JAVA_HOME=/opt/java/jdk1.8.0_45/" >> .bashrc
 sudo echo "export JRE_HOME=/opt/java/jdk1.8.0_45/jre" >> .bashrc
 sudo echo "export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin" >> .bashrc
+source ~/.bashrc
 java -version
 #installing jenkins
 cd
