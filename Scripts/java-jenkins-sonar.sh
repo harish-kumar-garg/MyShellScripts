@@ -14,15 +14,9 @@ sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_45/bi
 sudo update-alternatives --config javac
 sudo update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_45/bin/jar 1078
 sudo update-alternatives --config jar
-# export JAVA_HOME=/opt/java/jdk1.8.0_45/
-# export JRE_HOME=/opt/java/jdk1.8.0_45/jre
-# export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
-cd
-sudo echo "" >> .bashrc
-sudo echo "export JAVA_HOME=/opt/java/jdk1.8.0_45/" >> .bashrc
-sudo echo "export JRE_HOME=/opt/java/jdk1.8.0_45/jre" >> .bashrc
-sudo echo "export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin" >> .bashrc
-source ~/.bashrc
+export JAVA_HOME=/opt/java/jdk1.8.0_45/
+export JRE_HOME=/opt/java/jdk1.8.0_45/jre
+export PATH=$PATH:/opt/java/jdk1.8.0_45/bin:/opt/java/jdk1.8.0_45/jre/bin
 java -version
 #installing jenkins
 cd
@@ -30,23 +24,8 @@ wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
 sudo apt-get -y install jenkins
-cd
-#installing mysql
-# export DEBIAN_FRONTEND=noninteractive
-# echo mysql-server-5.6 mysql-server/root_password password welcome123 | debconf-set-selections
-# echo mysql-server-5.6 mysql-server/root_password_again password welcome123 | debconf-set-selections
-
-# install the LAMP stack
-# sudo apt-get -y install mysql-server-5.6 
-
-# sudo sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
-
-# sudo service mysql restart
-# echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'welcome123'; flush privileges;" | mysql -u root -pwelcome123
-
-# echo "CREATE DATABASE sonar CHARACTER SET utf8 COLLATE utf8_general_ci; CREATE USER 'sonar' IDENTIFIED BY 'sonar';GRANT ALL PRIVILEGES ON sonar.* TO 'sonar'@'%' IDENTIFIED BY 'sonar'; GRANT ALL ON sonar.* TO 'sonar'@'localhost' IDENTIFIED BY 'sonar'; flush privileges;" | mysql -u root -pwelcome123
-
 # install sonarqube
+cd
 wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.0.zip
 sudo apt-get install -y unzip
 unzip sonarqube-6.0.zip
