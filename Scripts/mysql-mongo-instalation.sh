@@ -23,4 +23,3 @@ sudo apt-get install -y mongodb-org=3.2.9 mongodb-org-server=3.2.9 mongodb-org-s
 # echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
 # echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 sudo service mongod start
-
